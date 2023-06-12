@@ -1,0 +1,57 @@
+.container {
+    @include breakpoint(xxx-large) {
+        max-width: 1815px;
+    }
+}
+
+figure {
+    margin: 0 0;
+}
+
+.sec-pd{
+    padding: 70px 0;
+}
+
+#main{
+    padding-top: 120px;
+}
+
+.height-screen {
+    min-height: calc(100vh - 120px);
+
+    .container-fluid,
+    .container {
+        height: 100%;
+
+        .row {
+            height: 100%;
+        }
+    }
+}
+
+.form-group {
+    margin-bottom: 25px;
+
+    .form-label {
+        font-size: 20px;
+        color: $black;
+        margin-bottom: 3px;
+        font-weight: 500;
+
+        @include breakpoint(desktop){
+            font-size: 15px;
+        }
+
+    }
+
+    .form-control {
+        height: 65px;
+        border-radius: 0.25rem !important;
+
+        &:focus {
+            box-shadow: unset;
+            border-color: $color-primary;
+            background-color: transparent;
+        }
+    }
+}

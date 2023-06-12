@@ -1,0 +1,228 @@
+.modal {
+    z-index: 99999;
+
+    &.modal-view {
+
+        .modal-dialog {
+            max-width: 1300px;
+
+            .modal-content {
+                padding: 0 30px;
+                box-shadow: 0px 0px 6px #00000029;
+                border-radius: 6px;
+
+                .modal-header {
+                    border: none;
+                    padding: 30px 0;
+
+                    h5 {
+                        font-size: 26px;
+                        font-weight: 600;
+                    }
+                }
+
+                .modal-body {
+                    padding: 0;
+
+                    h6 {
+                        margin-bottom: 20px;
+                    }
+
+                    .card {
+                        border: none;
+
+                        img {
+                            border-radius: 6px;
+                            height: 225px;
+                        }
+
+                        .card-body {
+                            text-align: center;
+                            margin-bottom: 25px;
+                            padding: 0;
+
+                            p {
+                                font-size: 17px;
+                                line-height: 1;
+                                padding: 20px 0 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.add-po {
+        .modal-dialog {
+            max-width: 1300px;
+
+            .modal-content {
+                padding: 30px 55px;
+
+                .modal-header {
+                    border: none;
+                    padding: 0;
+
+                    h5 {
+                        font-size: 36px;
+                        font-weight: 600;
+                    }
+                }
+
+                .modal-body {
+                    .form-group {
+                        display: flex;
+                        align-items: center;
+                        padding: 40px 0;
+
+                        label {
+                            font-size: 20px;
+                            font-weight: 500;
+                        }
+
+                        .searching {
+                            position: relative;
+
+                            i {
+                                position: absolute;
+                                top: 18px;
+                                left: 16px;
+                                transform: rotate(270deg);
+                                font-size: 25px;
+                                text-shadow: 0 0 $black;
+                            }
+
+                            input {
+                                width: 262px;
+                                height: 60px;
+                                border-radius: 6px;
+                            }
+                        }
+                    }
+
+                    .add-table {
+                        border: 1px solid #dbdbdb;
+                        border-radius: 6px;
+
+                        table {
+                            width: 100%;
+
+                            thead {
+                                tr {
+                                    th {
+                                        background-color: #dbdbdb;
+                                        font-size: 17px;
+                                        font-weight: 500;
+                                        padding: 15px 25px;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+
+                            tbody {
+                                tr {
+                                    td {
+                                        font-size: 17px;
+                                        font-weight: 500;
+                                        padding: 10px 25px;
+                                        text-align: center;
+
+                                        input {
+                                            margin: 0 auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .modal-footer {
+                    border-top: none;
+                }
+            }
+        }
+    }
+
+    &.not-assign-it {
+        .modal-dialog {
+            max-width: 1500px;
+
+            .modal-content {
+                padding: 50px;
+
+                .modal-header {
+                    border: 0;
+                }
+
+                .modal-body {
+                    padding: 30px 0;
+
+                    .cal-month {
+                        align-items: center;
+                        justify-content: center;
+
+                        a {
+                            i {
+                                color: $black;
+                                font-size: 30px;
+                            }
+                        }
+                    }
+
+                    .assign-cla-data {
+                        .dates {
+                            padding-top: 10px;
+                            padding-bottom: 40px;
+                            padding-right: 0;
+                            padding-left: 0;
+                            border-right: 1px solid #e2e2e2;
+
+                            &:last-child {
+                                border: 0;
+                            }
+
+                            >p {
+                                font-weight: 500;
+                                margin-left: auto;
+                                text-align: end;
+                                padding: 10px;
+                                margin-right: 10px;
+                            }
+
+                            ul {
+                                padding-left: 0;
+                                margin-bottom: 0;
+                                list-style-type: none;
+
+                                li{
+                                    margin: 20px;
+                                    .date-order {
+                                        border: 1px solid #B8B8B8;
+                                        padding: 20px 15px;
+                                        border-radius: 6px;
+                                        display: flex;
+
+                                        .select{
+                                            .form-group{
+                                                display: flex;
+                                                flex-direction: column;
+                                                text-align: center;
+
+                                                label{
+                                                    margin-bottom: 10px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

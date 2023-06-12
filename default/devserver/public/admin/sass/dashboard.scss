@@ -1,0 +1,37 @@
+/*!
+CSS Document
+Project Name: Dashboard
+Project Description:
+Written By: iMark Infotech - Kishore Kumar
+Created On: 15-7-2022
+Last Modified:
+*/
+
+// Vendors and external stylesheets
+@import "vendors/bootstrap";
+@import "vendors/line-awesome";
+@import "vendors/font-awesome";
+@import "vendors/swiper-slider";
+// Sass utilities
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/mixins";
+// Base stuff
+@import "base/reset";
+@import "base/typography";
+// Layout related stylesheets
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sidebar";
+@import "layout/forms";
+@import "layout/style";
+// Components and modules
+@import "components/buttons";
+// Page-specific stylesheets
+@import "pages/role";
+@import "pages/account";
+@import "pages/table";
+@import "pages/modal";
+// Themes
+@import "themes/theme";
+@import "themes/admin";

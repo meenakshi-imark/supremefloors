@@ -1,0 +1,191 @@
+// .bg-sitecolor {
+//     background-color: $color-primary;
+// }
+.bg-black {
+    background-color: $black;
+}
+
+.bg-white {
+    background-color: $white;
+}
+
+.content-wrapper {
+    overflow-y: scroll;
+    overflow: auto;
+    height: calc(100vh - 130px);
+    min-height: initial;
+    padding: 15px;
+    // padding: 40px 40px 0px 40px;
+    margin: 130px 0px 0px 280px;
+    width: calc(100% - 280px);
+    z-index: 98;
+    transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+    // background-color: #fafbfd;
+
+    @include breakpoint(x-large) {
+        height: calc(100vh - 90px);
+        // padding: 20px 20px 0px 20px;
+        margin: 90px 0px 0px 240px;
+        width: calc(100% - 240px);
+    }
+
+    @include breakpoint(normal) {
+        margin: 90px 0px 0px 220px;
+        width: calc(100% - 220px);
+    }
+
+    @include breakpoint(ipad) {
+        height: calc(100vh - 80px);
+        margin: 80px 0px 0px 0px;
+        width: calc(100% - 0px);
+    }
+
+    @include breakpoint(mobile) {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .container-fluid {
+        height: 100%;
+    }
+
+}
+
+
+
+.sidebar-active {
+    overflow: hidden;
+
+    .content-wrapper {
+        margin-left: 220px;
+    }
+
+    .main-sidebar {
+        transform: translate(0px, 0px);
+    }
+
+    .layer {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        transition: 0.3s;
+    }
+}
+
+.gx-72{
+    --bs-gutter-x: 72px;
+}
+.box-shadow {
+    box-shadow: 0px 0px 6px #00000029;
+    border-radius: 6px;
+    // height: 100%;
+    padding: 33px 55px;
+
+    .main-heading {
+        margin-bottom: 38px;
+
+        h1 {
+            margin-bottom: 25px;
+        }
+    }
+
+}
+
+.bg-green{
+    background-color: $color-secondary;
+}
+.form {
+    .form-label {
+        font-size: 20px;
+        font-weight: 500;
+
+        span{
+            font-size: 26px;
+            margin-left: 20px;
+        }
+    }
+
+    .form-control,
+    .form-select {
+        height: 65px;
+        margin-bottom: 20px;
+
+        &:focus {
+            border-color: $color-secondary;
+            box-shadow: none;
+        }
+    }
+
+    .check-grid {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        z-index: 3;
+
+        .form-check-label {
+            // border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            // padding: 20px 20px;
+            width: 100%;
+            font-family: $Montserrat;
+        }
+
+        span {
+            padding-left: 10px;
+        }
+    }
+
+
+    .accordion-item {
+        border: 0px solid rgba(0, 0, 0, 0.125);
+        margin-bottom: 20px;
+
+        .accordion-header {
+            position: relative;
+            font-size: inherit;
+
+            .accordion-button {
+                height: 65px;
+                border: 1px solid #ced4da !important;
+                border-radius: 0.25rem !important;
+
+                &:focus {
+                    border-color: $color-secondary;
+                    box-shadow: none;
+                }
+
+                &:not(.collapsed) {
+                    box-shadow: none;
+                    background-color: #13582e21;
+                }
+
+            }
+        }
+
+        .card-body {
+            .check-grid {
+                position: static;
+                transform: none;
+                margin-bottom: 15px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .accordion-button::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+        transform: scale(.7) !important;
+    }
+
+    .accordion-button:not(.collapsed)::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+    }
+
+}

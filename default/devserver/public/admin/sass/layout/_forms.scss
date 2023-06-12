@@ -1,0 +1,235 @@
+.u-profile-e-img {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    @include breakpoint(x-large) {
+        width: 90px;
+        height: 90px;
+    }
+
+    .p-image {
+        position: absolute;
+        right: -5px;
+        top: 0px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: $bg-g-blue;
+        background-color: #357ab5;
+        transition: 0.3s;
+
+        @include breakpoint(x-large) {
+            width: 25px;
+            height: 25px;
+        }
+
+        &:hover {
+            background-image: none;
+        }
+
+        i {
+            font-size: rem(18px);
+            color: #fff;
+
+            @include breakpoint(x-large) {
+                font-size: rem(16px);
+            }
+        }
+
+        input {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            padding: 0px !important;
+            border: none !important;
+            opacity: 0;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    }
+}
+
+.form-profile {
+    margin-bottom: 30px;
+
+    p {
+        margin-top: 10px;
+    }
+}
+
+.form {
+    .control-group {
+        margin-bottom: 20px;
+
+        @include breakpoint(x-large) {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: rem(18px);
+            line-height: 1.2;
+            font-weight: 500;
+            color: #333333;
+            margin: 0px 0px 8px 0px;
+
+            @include breakpoint(x-large) {
+                font-size: rem(14px);
+                margin: 0px 0px 5px 0px;
+            }
+        }
+
+        input.form-control {
+            font-size: rem(18px);
+            font-weight: 400;
+            height: 58px;
+            padding: 10px 15px;
+            color: #a0a1a2;
+            box-shadow: none;
+            border: 1px solid rgba(94, 94, 94, 0.5);
+            border-radius: 10px;
+            background: #fff;
+            transition: 0.3s;
+            font-family: $Montserrat;
+
+            @include breakpoint(x-large) {
+                font-size: rem(14px);
+                height: 45px;
+                padding: 5px 15px;
+                border-radius: 5px;
+            }
+
+            &::placeholder {
+                opacity: 0.5;
+                color: #a0a1a2;
+            }
+
+            &:focus {
+                border-color: $color-primary;
+            }
+        }
+
+        select.form-control {
+            font-size: rem(18px);
+            font-weight: 400;
+            height: 58px;
+            padding: 10px 15px;
+            color: #a0a1a2;
+            box-shadow: none;
+            border: 1px solid rgba(94, 94, 94, 0.5);
+            border-radius: 10px;
+            background-color: #fff;
+            background-image: linear-gradient(45deg, transparent 50%, #a2a2a2 50%), linear-gradient(135deg, #a2a2a2 50%, transparent 50%);
+            background-position: calc(100% - 20px) calc(1em + 7px), calc(100% - 13px) calc(1em + 7px);
+            background-size: 7px 7px, 7px 7px;
+            background-repeat: no-repeat;
+            transition: 0.3s;
+            font-family: $Montserrat;
+
+            @include breakpoint(x-large) {
+                font-size: rem(14px);
+                height: 45px;
+                padding: 5px 15px;
+                border-radius: 5px;
+                background-position: calc(100% - 15px) calc(1em + 7px),calc(100% - 10px) calc(1em + 7px);
+                background-size: 5px 5px,5px 5px;
+            }
+
+            &::placeholder {
+                opacity: 0.5;
+                color: #a0a1a2;
+            }
+
+            &:focus {
+                border-color: $color-primary;
+            }
+        }
+
+        textarea.form-control {
+            font-size: rem(18px);
+            font-weight: 400;
+            height: 160px;
+            padding: 10px 15px;
+            color: #a0a1a2;
+            box-shadow: none;
+            border: 1px solid rgba(94, 94, 94, 0.5);
+            border-radius: 10px;
+            background: #fff;
+            transition: 0.3s;
+            font-family: $Montserrat;
+
+            @include breakpoint(x-large) {
+                font-size: rem(14px);
+                height: 120px;
+                padding: 5px 15px;
+                border-radius: 5px;
+            }
+
+            &::placeholder {
+                opacity: 0.5;
+                color: #a0a1a2;
+            }
+
+            &:focus {
+                border-color: $color-primary;
+            }
+        }
+    }
+}
+
+.form-btn {
+    padding-top: 20px;
+
+    @include breakpoint(x-large) {
+        padding-top: 10px;
+    }
+
+    button {
+        padding: 0px 60px;
+        margin-right: 10px;
+
+        @include breakpoint(x-large) {
+            padding: 0px 40px;
+        }
+    }
+}
+
+.profile-area {
+    form {
+        margin-bottom: 40px;
+        padding-bottom: 60px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+        &:last-child {
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            border-bottom: none;
+        }
+
+        >h2 {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.modal-backdrop {
+	background-color: #072d54;
+
+    &.show {
+        opacity: 0.78;
+        z-index: 9999;
+    }
+}
+
+.controls {    
+    position: relative;
+}

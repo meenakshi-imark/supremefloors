@@ -1,0 +1,59 @@
+//Header Content Here
+
+.header {
+    background-color: #fff;
+    box-shadow: 0px 3px 6px #00000029;
+    height: 120px;
+    height: 120px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
+
+    .bg-light {
+        background-color: #fff !important;
+    }
+
+    a.navbar-brand {
+        max-width: 290px;
+    }
+
+    .navbar-nav {
+        align-items: center;
+
+        .nav-item {
+            margin-left: 50px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            .nav-link {
+                font-size: 20px;
+                text-transform: capitalize;
+                color: #000;
+                font-weight: 500;
+
+                @include breakpoint(x-large) {
+                    font-size: 17px;
+                }
+
+            }
+
+            .btn {
+                background: $header-btn-color;
+                color: $white;
+                border-color: $color-primary;
+
+                @include breakpoint(x-large) {
+                    font-size: 17px;
+                }
+
+            }
+
+        }
+    }
+
+}

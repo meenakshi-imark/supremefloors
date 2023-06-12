@@ -1,0 +1,351 @@
+@include("layouts.admin.header")
+
+<main class="content-wrapper">
+    <div class="container-fluid">
+
+        <div class="box-shadow role">
+
+            <div class="main-heading">
+                <h1>
+                    Create Product
+                </h1>
+                <p>
+                    This segment is to create a product. A product stock information is under Inventory.
+                </p>
+            </div>
+            @if(session()->has('success'))
+                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                         <strong>Success!</strong> {{session()->get('success')}}
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                       </div>
+                 @endif 
+                 @if(session()->has('error'))
+                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                         <strong>Error!</strong> {{session()->get('error')}}
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                       </div>
+                 @endif 
+            @if(count($errors)>0)
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+            <div class="form mw-100">
+                <form action="{{route('store-product')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Product No.</label>
+                                <input type="number" name="product_no" class="form-control" placeholder="45445">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Product Name</label>
+                                <input type="text" name="product_name" class="form-control" placeholder="Lorem Ipsum">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-select-group w-100">
+                                <div class="with-radio">
+                                    <label class="form-label">Product Category</label>
+                                </div>
+                                <select class="form-select" name="product_category" aria-label="Default select example">
+                                    <option selected>Select Category..</option>
+                                    @foreach($product_category as $category)
+                                    <option value="{{$category->category_name}}">{{$category->category_name}}</option>
+                                    @endforeach
+                                    
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Minimum Product Cost</label>
+                                <input type="number" name="min_cost" class="form-control" placeholder="$8432">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group form-select-group w-100">
+                                <div class="with-radio">
+                                    <label class="form-label">Skirting</label>
+                                </div>
+                                <div class="search-it">
+                                    <div class="dropdown dropdown-product">
+                                        <i class="la la-search"></i>
+                                        <label class="dropdown-label">Skirting Type 1</label>
+                                        <!-- <input type="hidden" class="dropdown-label" name="skirting_type[]" value=""> -->
+                                        <div class="dropdown-list">
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="dropdown_group[]" value="Skirting1" class="check checkbox-custom" id="checkbox-custom_01" />
+                                                <label for="checkbox-custom_01" class="checkbox-custom-label">Skirting Type 1</label>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="dropdown_group[]" value="Skirting2" class="check checkbox-custom" id="checkbox-custom_02" />
+                                                <label for="checkbox-custom_02" class="checkbox-custom-label">Skirting Type 2</label>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="dropdown_group[]" value="Skirting3" class="check checkbox-custom" id="checkbox-custom_03" />
+                                                <label for="checkbox-custom_03" class="checkbox-custom-label">Skirting Type 3</label>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="dropdown_group[]" value="Skirting4" class="check checkbox-custom" id="checkbox-custom_04" />
+                                                <label for="checkbox-custom_04" class="checkbox-custom-label">Skirting Type 4</label>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="dropdown_group[]" value="Skirting5" class="check checkbox-custom" id="checkbox-custom_05" />
+                                                <label for="checkbox-custom_05" class="checkbox-custom-label">Skirting Type 5</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group form-select-group w-100">
+                                <div class="with-radio">
+                                    <label class="form-label">Supplier</label>
+                                </div>
+                                <div class="search-it">
+                                    <i class="la la-search"></i>
+                                    <div class="dropdown">
+                                        <button class="bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Supplier Name
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li>
+                                                <div class="accordion" id="accordionExample">
+                                                    @php
+                                                    $i = 1;
+                                                    @endphp
+                                                    @foreach($suppliers as $supplier)
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingOne{{$i}}">
+                                                            <button class="accordion-button ps-2 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{$i}}" aria-expanded="true" aria-controls="collapseOne{{$i}}" >
+                                                                {{$supplier->person_name}}
+                                                            </button>
+                                                        </h2>
+                                                        @if($i == 1)
+                                                        <div id="collapseOne{{$i}}" class="accordion-collapse collapse show" aria-labelledby="headingOne{{$i}}" data-bs-parent="#accordionExample" >
+                                                            <div class="accordion-body border-bottom">
+                                                                <div class="row row-cols-2">
+                                                                    <input type="hidden" name="supplier_name[]" id="supplier_name" value="{{$supplier->person_name}}">
+                                                                    <input type="hidden" name="supplier_id[]" value="{{$supplier->id}}">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Product Code</label>
+                                                                            <input type="number" name="product_code[]" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Remarks</label>
+                                                                            <input type="number" name="remarks[]" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @else
+                                                        
+                                                        <div id="collapseOne{{$i}}" class="accordion-collapse collapse" aria-labelledby="headingOne{{$i}}" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body border-bottom">
+                                                                <div class="row row-cols-2">
+                                                                    <input type="hidden" name="supplier_name[]" id="supplier_name" value="{{$supplier->person_name}}">
+                                                                    <input type="hidden" name="supplier_id[]" value="{{$supplier->id}}">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Product Code</label>
+                                                                            <input type="number" name="product_code[]" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Remarks</label>
+                                                                            <input type="number" name="remarks[]" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        @endif
+                                                    </div>
+                                                    @php
+                                                    $i++;
+                                                    @endphp
+                                                    @endforeach
+                                                    <!-- <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingTwo">
+                                                            <button class="accordion-button collapsed ps-2 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                                Supplier Two
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body border-bottom">
+                                                            <input type="hidden" name="supplier_name" value="supplier two">
+                                                                    <input type="hidden" name="supplier_id" value="#2">
+                                                                <div class="row row-cols-2">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Product Code</label>
+                                                                            <input type="number" name="product_code" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Remarks</label>
+                                                                            <input type="number" name="remarks" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingThree">
+                                                            <button class="accordion-button collapsed ps-2 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                                                Supplier Three
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body border-bottom">
+                                                                <div class="row row-cols-2">
+                                                                <input type="hidden" name="supplier_name" value="supplier three">
+                                                                    <input type="hidden" name="supplier_id" value="#3">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Product Code</label>
+                                                                            <input type="number" name="product_code" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Remarks</label>
+                                                                            <input type="number" name="remarks" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingFour">
+                                                            <button class="accordion-button collapsed ps-2 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                                                Supplier Four
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body border-bottom">
+                                                                <div class="row row-cols-2">
+                                                                <input type="hidden" name="supplier_name" value="supplier four">
+                                                                    <input type="hidden" name="supplier_id" value="#4">
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Product Code</label>
+                                                                            <input type="number" name="product_code" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Remarks</label>
+                                                                            <input type="number" name="remarks" class="form-control ps-2" placeholder="45445">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="add-more d-flex justify-content-between ps-2">
+                                                        <p>New Supplier</p>
+                                                        <i class="fa fa-plus-circle"></i>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Units Per Packet</label>
+                                <select class="form-select" name="units_per_packet" aria-label="Default select example">
+                                    <option selected>1</option>
+                                    <option value="1">2</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label">Description for Sale Invoice</label>
+                                <input type="text" name="descriptions" class="form-control" placeholder="Lorem Ipsum">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Reorder quantity field</label>
+                                <input type="number" name="reorder_qty" class="form-control" placeholder="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label">Photo</label>
+                                <div class="upload">
+                                    <input type="file" name="p_image" class="form-control" placeholder="">
+                                    <div class="upload-txt">
+                                        <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                        <p>Click here or drag and drop files to upload</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="readit">
+                                <li><span>Photo requirement:</span> Maximum 500 KB</li>
+                                <li><span>Format accepted:</span> PNG & JPEG</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="d-flex btn-grid">
+                        <button type="submit" class="btn" >Create</button>
+                        <button type="submit" class="btn btn-white">Clear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+@include("layouts.admin.footer")

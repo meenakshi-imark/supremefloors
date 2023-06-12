@@ -1,0 +1,93 @@
+.login-sec {
+    position: relative;
+    overflow-y: hidden;
+
+    figure {
+        height: 100%;
+        width: 100%;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .login-grid {
+        // padding-top: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        .login-inner-grid {
+            max-width: 726px;
+            width: 100%;
+
+            .heading {
+                margin-bottom: 65px;
+
+                p {
+                    font-size: 17px;
+                }
+            }
+
+            .form-group {
+
+                .input-group-addon {
+                    position: absolute;
+                    right: 9px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 3;
+
+                    a {
+                        color: $black;
+                    }
+
+                }
+
+                cite {
+                    display: block;
+                    max-width: fit-content;
+                    margin-left: auto;
+                    font-style: normal;
+
+                    a {
+                        color: $black;
+                        font-size: 14px;
+                        text-decoration: underline;
+                    }
+
+
+
+                }
+            }
+
+            cite.get-help {
+                margin: auto;
+                display: block;
+                text-align: center;
+                font-style: normal;
+                font-size: 17px;
+
+                a {
+                    color: $black;
+                    font-weight: 600;
+                }
+
+            }
+
+            .btn{
+                font-size: 20px;
+            }
+
+        }
+
+
+
+    }
+
+
+}
